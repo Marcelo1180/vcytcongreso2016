@@ -45,7 +45,7 @@ class Investigador(models.Model):
     genero = models.CharField(max_length=1, choices=GENERO_CHOICES)
     email = models.EmailField(verbose_name='Email personal')
     email_institucional = models.EmailField(default='', verbose_name='Email institucional')
-    nacionalidad_origen = models.ForeignKey(Pais, related_name='nacionalidad_origen', verbose_name='Nacionalidad de origen')
+    nacionalidad_origen = models.ForeignKey(Pais, related_name='nacionalidad_origen', verbose_name='Nacionalidad de origen', help_text='Nacionalidad Actual donde reside')
     nacionalidad_actual = models.ForeignKey(Pais, related_name='nacionalidad_actual', verbose_name='Nacionalidad actual')
     foto = models.ImageField(upload_to='uploads/foto', verbose_name='Fotografia 3x3(cm)')
     # FORMACION
