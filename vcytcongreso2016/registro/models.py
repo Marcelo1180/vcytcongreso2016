@@ -29,6 +29,7 @@ class Frascati_nivel(models.Model):
     frascati_nivel = models.CharField(max_length=50)
 
 class Frascati_categoria(models.Model):
+    frascati_nivel = models.ForeignKey(Frascati_nivel)
     frascati_categoria = models.CharField(max_length=50)
 
 class Departamento(models.Model):
@@ -45,8 +46,8 @@ class Investigador(models.Model):
     genero = models.CharField(max_length=1, choices=GENERO_CHOICES)
     email = models.EmailField(verbose_name='Email personal')
     email_institucional = models.EmailField(default='', verbose_name='Email institucional')
-    nacionalidad_origen = models.ForeignKey(Pais, related_name='nacionalidad_origen', verbose_name='Nacionalidad de origen', help_text='Nacionalidad Actual donde reside')
-    nacionalidad_actual = models.ForeignKey(Pais, related_name='nacionalidad_actual', verbose_name='Nacionalidad actual')
+    nacionalidad_origen = models.ForeignKey(Pais, related_name='nacionalidad_origen', verbose_name='Nacionalidad de origen', help_text='Ingrese la nacionalidad que recibio al momento de nacer aunque esta haya cambiado luego de ese momento')
+    nacionalidad_actual = models.ForeignKey(Pais, related_name='nacionalidad_actual', verbose_name='Nacionalidad actual', help_text='Especifique la nacionalidad que utiliza actualmente de manera legal')
     foto = models.ImageField(upload_to='uploads/foto', verbose_name='Fotografia 3x3(cm)')
     # FORMACION
     profesion = models.CharField(max_length=100)
@@ -59,8 +60,8 @@ class Investigador(models.Model):
     institucion = models.CharField(max_length=50, verbose_name='Institucion')
     institucion_ciudad = models.CharField(max_length=50, verbose_name='Ciudad')
     institucion_pais = models.ForeignKey(Pais, related_name='Pais')
-    frascati_nivel = models.ForeignKey(Frascati_nivel, verbose_name='Area de investigacion')
-    frascati_categoria = ChainedForeignKey(Frascati_categoria, chained_field='frascati_nivel', chained_model_field='frascati_nivel', verbose_name='Area de investigacion')
+    frascati_nivel = models.ForeignKey(Frascati_nivel, verbose_name='Area de investigacion (Nivel)')
+    frascati_categoria = ChainedForeignKey(Frascati_categoria, chained_field='frascati_nivel', chained_model_field='frascati_nivel', verbose_name='Area de investigacion (Categoria)')
     especialidad = models.CharField(max_length=150)
     experiencia_year = models.IntegerField(validators=[validate_cant_year], verbose_name='Años de experiencia')
     curriculum = models.FileField(upload_to='uploads/curriculum', verbose_name='Curriculum Vitae')

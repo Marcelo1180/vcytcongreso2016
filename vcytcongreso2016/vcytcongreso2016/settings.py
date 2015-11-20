@@ -56,10 +56,23 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'vcytcongreso2016.urls'
 
+# BY MARCELO XD ------------------------------------------------------------------
+# TEMPLATES Y CSS, IMG, JS EN LA CARPETA PRINCIPAL DE PROYECTO (URLS, SETTINGS) --
+#import os.path
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.dirname(__file__),'static'),
+)
+# Para Uploads
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'media')
+MEDIA_URL = '/media/'
+
+# BY MARCELO XD ------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': [],
+        'DIRS': [os.path.join(os.path.dirname(__file__), "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +84,7 @@ TEMPLATES = [
         },
     },
 ]
+# --------------------------------------------------------------------------------
 
 WSGI_APPLICATION = 'vcytcongreso2016.wsgi.application'
 
