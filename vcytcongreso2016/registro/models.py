@@ -15,22 +15,41 @@ GENERO_CHOICES = (
     ('F', 'Femenino'),
     ('M', 'Masculino'),
 )
-
+BOOL_CHOICES = (
+    (True, 'Si'),
+    (False, 'No')
+)
 def validate_cant_year(value):
     if value>1 and value<100:
         raise ValidationError('%s some error message' % value)
 
 class Pais(models.Model):
+    iso = models.CharField(max_length=2)
     pais = models.CharField(max_length=50)
     def __str__(self):
 		return self.pais
 
+    def __unicode__(self):
+        return self.pais
+
 class Frascati_nivel(models.Model):
     frascati_nivel = models.CharField(max_length=50)
+
+    def __str__(self):
+		return self.frascati_nivel
+
+    def __unicode__(self):
+        return self.frascati_nivel
 
 class Frascati_categoria(models.Model):
     frascati_nivel = models.ForeignKey(Frascati_nivel)
     frascati_categoria = models.CharField(max_length=50)
+
+    def __str__(self):
+		return self.frascati_categoria
+
+    def __unicode__(self):
+		return self.frascati_categoria
 
 class Departamento(models.Model):
     departamento = models.CharField(max_length=50)
@@ -68,11 +87,14 @@ class Investigador(models.Model):
     # PUBLICACIONES
     publicacion = models.CharField(max_length=50, verbose_name='Colocar el enlace')
     # DISPONIBILIDAD DE TIEMPO PARA ASISTIR CONGRESO
+    disponibilidad = models.BooleanField(choices=BOOL_CHOICES)
     pais_origen = models.ForeignKey(Pais, related_name='pais_origen', verbose_name='País de origen')
     ciudad_origen = models.CharField(max_length=100, verbose_name='Ciudad de origen')
     aeropuerto_origen = models.CharField(max_length=100, verbose_name='Aeropuerto de origen')
     fecha_llegada = models.DateField(verbose_name='Fecha de llegada a Bolivia(Cochabamba)')
     fecha_retorno = models.DateField(verbose_name='Fecha de retorno')
+    comment_no = models.TextField(verbose_name='Comentarios', help_text='Comentar por que no puede asistir al evento')
+    # COMENTARIOS
     comment = models.TextField(verbose_name='Comentarios')
     # def save(self, *args, **kwargs):
     #     if self.image:

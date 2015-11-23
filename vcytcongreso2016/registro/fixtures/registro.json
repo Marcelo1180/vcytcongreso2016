@@ -1,0 +1,18 @@
+[
+  {
+    "model": "registro.pais",
+    "pk": 1,
+    "fields": {
+      "iso": "AF",
+      "pais": "Afganistán"
+    }
+  },
+  {
+    "model": "registro.pais",
+    "pk": 2,
+    "fields": {
+      "iso": "AX",
+      "pais": "Islas Gland"
+    }
+  }
+]
