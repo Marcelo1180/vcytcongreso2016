@@ -8,12 +8,16 @@ from smart_selects.db_fields import ChainedForeignKey, GroupedForeignKey
 # Create your models here.
 # class Departamento(models.Model):
 YEAR_CHOICES = []
-for y in range(1980, 2015):
+for y in range(1960, 2016):
     YEAR_CHOICES.append((y, y))
 
 GENERO_CHOICES = (
     ('F', 'Femenino'),
     ('M', 'Masculino'),
+)
+MAX_GRADO_CHOICES = (
+    ('MSc', 'MSc'),
+    ('PhD', 'PhD'),
 )
 BOOL_CHOICES = (
     (True, 'Si'),
@@ -54,6 +58,12 @@ class Frascati_categoria(models.Model):
 class Departamento(models.Model):
     departamento = models.CharField(max_length=50)
 
+    def __str__(self):
+		return self.departamento
+
+    def __unicode__(self):
+        return self.departamento
+
 #def inscripcion(model):
 class Investigador(models.Model):
     # DATOS PERSONALES
@@ -64,13 +74,13 @@ class Investigador(models.Model):
     telefono = models.CharField(max_length=50)
     genero = models.CharField(max_length=1, choices=GENERO_CHOICES)
     email = models.EmailField(verbose_name='Email personal')
-    email_institucional = models.EmailField(default='', verbose_name='Email institucional')
+    email_institucional = models.EmailField(verbose_name='Email institucional', default='')
     nacionalidad_origen = models.ForeignKey(Pais, related_name='nacionalidad_origen', verbose_name='Nacionalidad de origen', help_text='Ingrese la nacionalidad que recibio al momento de nacer aunque esta haya cambiado luego de ese momento')
     nacionalidad_actual = models.ForeignKey(Pais, related_name='nacionalidad_actual', verbose_name='Nacionalidad actual', help_text='Especifique la nacionalidad que utiliza actualmente de manera legal')
     foto = models.ImageField(upload_to='uploads/foto', verbose_name='Fotografia 3x3(cm)')
     # FORMACION
     profesion = models.CharField(max_length=100)
-    max_grado = models.CharField(max_length=50, verbose_name='Maximo grado academico')
+    max_grado = models.CharField(max_length=3, choices=MAX_GRADO_CHOICES, verbose_name='Maximo grado academico')
     max_grado_upload = models.FileField(upload_to='uploads/max_grado', verbose_name='Adjuntar copia digital del titulo')
     max_grado_year = models.IntegerField(choices=YEAR_CHOICES, verbose_name='Año de obtencion')
     universidad_profesion = models.CharField(max_length=100)
@@ -79,8 +89,9 @@ class Investigador(models.Model):
     institucion = models.CharField(max_length=50, verbose_name='Institucion')
     institucion_ciudad = models.CharField(max_length=50, verbose_name='Ciudad')
     institucion_pais = models.ForeignKey(Pais, related_name='Pais')
-    frascati_nivel = models.ForeignKey(Frascati_nivel, verbose_name='Area de investigacion (Nivel)')
-    frascati_categoria = ChainedForeignKey(Frascati_categoria, chained_field='frascati_nivel', chained_model_field='frascati_nivel', verbose_name='Area de investigacion (Categoria)')
+    # frascati_nivel = models.ForeignKey(Frascati_nivel, verbose_name='Area de investigacion (Nivel)')
+    # frascati_categoria = ChainedForeignKey(Frascati_categoria, chained_field='frascati_nivel', chained_model_field='frascati_nivel', verbose_name='Area de investigacion (Categoria)')
+    frascati_categoria = GroupedForeignKey(Frascati_categoria, 'frascati_nivel', verbose_name='Area de investigación')
     especialidad = models.CharField(max_length=150)
     experiencia_year = models.IntegerField(validators=[validate_cant_year], verbose_name='Años de experiencia')
     curriculum = models.FileField(upload_to='uploads/curriculum', verbose_name='Curriculum Vitae')
@@ -102,4 +113,4 @@ class Investigador(models.Model):
     #     super(MyPhoto, self).save(*args, **kwargs)
 
     def __str__(self):
-		return self.nombres
+		return self.nombre_completo

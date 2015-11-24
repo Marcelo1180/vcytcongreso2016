@@ -1,3 +1,7 @@
+-- ----------------------------
+-- Este archivo se debe guardar con codificacion utf8
+-- ----------------------------
+
 INSERT INTO `registro_pais` (id, iso, pais) VALUES ('1', 'AF', 'Afganistán');
 INSERT INTO `registro_pais` (id, iso, pais) VALUES ('2', 'AX', 'Islas Gland');
 INSERT INTO `registro_pais` (id, iso, pais) VALUES ('3', 'AL', 'Albania');

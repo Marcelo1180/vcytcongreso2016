@@ -120,3 +120,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DATE_INPUT_FORMATS = ('%d/%m/%Y',)
+
+USE_DJANGO_JQUERY = False
