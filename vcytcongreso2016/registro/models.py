@@ -24,8 +24,8 @@ BOOL_CHOICES = (
     (False, 'No')
 )
 def validate_cant_year(value):
-    if value>1 and value<100:
-        raise ValidationError('%s some error message' % value)
+    if value<1 or value>100:
+        raise ValidationError('Ingrese un año entre 1 y 100')
 
 class Pais(models.Model):
     iso = models.CharField(max_length=2)
@@ -74,7 +74,7 @@ class Investigador(models.Model):
     telefono = models.CharField(max_length=50)
     genero = models.CharField(max_length=1, choices=GENERO_CHOICES)
     email = models.EmailField(verbose_name='Email personal')
-    email_institucional = models.EmailField(verbose_name='Email institucional', default='')
+    email_institucional = models.EmailField(verbose_name='Email institucional', blank=True, default='')
     nacionalidad_origen = models.ForeignKey(Pais, related_name='nacionalidad_origen', verbose_name='Nacionalidad de origen', help_text='Ingrese la nacionalidad que recibio al momento de nacer aunque esta haya cambiado luego de ese momento')
     nacionalidad_actual = models.ForeignKey(Pais, related_name='nacionalidad_actual', verbose_name='Nacionalidad actual', help_text='Especifique la nacionalidad que utiliza actualmente de manera legal')
     foto = models.ImageField(upload_to='uploads/foto', verbose_name='Fotografia 3x3(cm)')
@@ -98,7 +98,7 @@ class Investigador(models.Model):
     # PUBLICACIONES
     publicacion = models.CharField(max_length=50, verbose_name='Colocar el enlace')
     # DISPONIBILIDAD DE TIEMPO PARA ASISTIR CONGRESO
-    disponibilidad = models.BooleanField(choices=BOOL_CHOICES)
+    disponibilidad = models.BooleanField(choices=BOOL_CHOICES, default=False)
     pais_origen = models.ForeignKey(Pais, related_name='pais_origen', verbose_name='País de origen')
     ciudad_origen = models.CharField(max_length=100, verbose_name='Ciudad de origen')
     aeropuerto_origen = models.CharField(max_length=100, verbose_name='Aeropuerto de origen')
