@@ -4,7 +4,7 @@ from models import Frascati_nivel, Frascati_categoria
 from models import Investigador
 
 class InvestigadorAdmin(admin.ModelAdmin):
-    list_display = ('nombre_completo', 'telefono', 'genero', 'email', 'telefono')
+    list_display = ('nombre_completo', 'telefono', 'genero', 'nacionalidad_origen', 'nacionalidad_actual', 'institucion', 'institucion_pais', 'frascati_categoria')
 
 admin.site.register(Pais)
 admin.site.register(Departamento)

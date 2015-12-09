@@ -1,5 +1,13 @@
 .texto {
-    text-align: justify;
+    text-align: justify !important;
+}
+
+.container p{
+    text-align: justify !important;
+}
+
+.container h3{
+    text-align: left !important;
 }
 
 .with-errors {

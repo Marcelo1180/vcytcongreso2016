@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^home/$', 'registro.views.home'),
+    url(r'^$', 'registro.views.home'),
+    url(r'^inscripcion_guardada/', 'registro.views.inscripcion_guardada'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^chaining/', include('smart_selects.urls')),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT})

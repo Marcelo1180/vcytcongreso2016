@@ -60,6 +60,8 @@ ROOT_URLCONF = 'vcytcongreso2016.urls'
 # TEMPLATES Y CSS, IMG, JS EN LA CARPETA PRINCIPAL DE PROYECTO (URLS, SETTINGS) --
 #import os.path
 
+#STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
+
 STATICFILES_DIRS = (
     os.path.join(os.path.dirname(__file__),'static'),
 )
@@ -92,10 +94,22 @@ WSGI_APPLICATION = 'vcytcongreso2016.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_vcyt',                      
+        # 'USER': 'xu_vcyt',
+        # 'PASSWORD': 'Ker101180vcyt',
+        'USER': 'postgres',
+        'PASSWORD': 'Kerber01180',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

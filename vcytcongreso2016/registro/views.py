@@ -8,10 +8,13 @@ def home(request):
         form = InvestigadorForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/add/publisher_thanks')
+            return HttpResponseRedirect('/inscripcion_guardada')
         else:
             sw_error = "true"
     else:
         form = InvestigadorForm()
     return render(request, 'base.html', {'form': form, 'sw_error': sw_error}, context_instance=RequestContext(request))
     # return render(request, 'base.html')
+
+def inscripcion_guardada(request):
+    return render(request, 'base_ok.html')

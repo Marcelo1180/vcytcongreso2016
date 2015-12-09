@@ -33,27 +33,27 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <!-- <a class="navbar-brand" href="index.html">
                     <img src="{% static 'img/minedu_logo.png' %}">
-                </a>
+                </a> -->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-      <ul class="nav navbar-nav">
+     <ul class="nav navbar-nav">
         <li class="active"><a href="#intro">Inicio</a></li>
 		<li><a href="#convocatoria">Convocatoria</a></li>
 		<li><a href="#contact">Contacto</a></li>
-		  <li><a href="#inscripcion">Inscripcion</a></li>
-        <!--<li class="dropdown">-->
-          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
-          <!--<ul class="dropdown-menu">-->
-            <!--<li><a href="#">Example menu</a></li>-->
-            <!--<li><a href="#">Example menu</a></li>-->
-            <!--<li><a href="#">Example menu</a></li>-->
-          <!--</ul>-->
-        <!--</li>-->
-      </ul>
+		<li><a href="#inscripcion">Pre-Registro</a></li>
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos de Consulta<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="{% static 'Plan_Nacional_CyT.pdf' %}" target="_blank"><span class="glyphicon glyphicon-save"></span> Plan Nacional de Ciencia y Tecnología</a></li>
+            <li><a href="{% static 'Redes_CyT.pdf' %}" target="_blank"><span class="glyphicon glyphicon-save"></span> Redes Nacionales de Investigación Científica y Tecnológica</a></li>
+            <li><a href="{% static 'potencial_cientifico2011.pdf' %}" target="_blank"><span class="glyphicon glyphicon-save"></span> Potencial Científico 2011</a></li>
+          </ul>
+        </li>
+     </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -61,12 +61,13 @@
     </nav>
 
 	<!-- Section: intro -->
-    <section id="intro" class="intro">
-		<p><br></p>
-		<p><br></p>
+    <section id="intro" class="intro">		
 		<div class="slogan">
-			<h2>BIENVENIDO <span class="text_color">INVESTIGADOR</span> </h2>
-			<h4>CONGRESO CIENTÍFICO, PARA LA LIBERACIÓN CIENTÍFICA TECNOLÓGICA<br>BOLIVIA - 2016</h4>
+			<!--<h2>BIENVENIDO <span class="text_color">INVESTIGADOR</span> </h2>-->
+			<img src="{% static 'bolivia.png' %}">
+			<h3 style="font-size:20px;color:#FFF">Estado Plurinacional de Bolivia</h3>
+			<br>
+			<h3 style="font-size:30px;color:#FFF">I ENCUENTRO DE CIENTÍFICOS BOLIVIANOS<br> RADICADOS EN EL EXTERIOR, <br>PARA LA LIBERACIÓN CIENTÍFICA Y TECNOLÓGICA</h3>
 		</div>
 		<div class="page-scroll">
 			<a href="#inscripcion" class="btn btn-circle">
@@ -98,21 +99,30 @@
 				<hr class="marginbot-50">
 			</div>
 		</div>
-        <div class="row">
+        <div class="row">			
 			<div class="col-xs-12 col-sm-12 col-md-12">
-				<div class="wow bounceInUp" data-wow-delay="0.2s">
+				<div class="wow bounceInUp" data-wow-delay="0.4s">
 					<div class="team boxed-grey">
 						<div class="inner">
-							<p class="texto">El Presidente del Estado Plurinacional de Bolivia, Juan Evo Morales Ayma, con el objeto de promover un espacio de intercambio de experiencias, propuestas y e ideas orientadas hacia la liberación científico tecnológica de Bolivia, convoca a científicos y expertos de nacionalidad boliviana radicados en el exterior, al:</p>
+							<h4>I ENCUENTRO DE CIENTÍFICOS BOLIVIANOS EN EL EXTERIOR PARA LA LIBERACIÓN CIENTÍFICA TECNOLÓGICA</h4>
 						</div>
 					</div>
 				</div>
             </div>
 			<div class="col-xs-12 col-sm-12 col-md-12">
-				<div class="wow bounceInUp" data-wow-delay="0.4s">
+				<div class="wow bounceInUp" data-wow-delay="0.2s">
 					<div class="team boxed-grey">
 						<div class="inner">
-							<h4>CONGRESO CIENTÍFICO "para la liberación científico tecnológica"</h4>
+							<a href="{% static 'convocatoria.pdf' %}" class="btn bnt-info" target="_blank"><span class="glyphicon glyphicon-save"></span> Descargar convocatoria</a>
+							<h3>ANTECEDENTES</h3>
+							<p class="texto">Para consolidar las profundas transformaciones económicas, sociales, políticas y culturales que vive nuestro país, es imprescindible impulsar una revolución científica que busque una liberación de la dependencia científico tecnológico, orientada a la consolidación plena y soberana del conocimiento, que permita a Bolivia desarrollar ciencia y  tecnología propia para encarar los desafíos del siglo XXI.</p>
+<p>
+En el marco de la Agenda Patriótica 2025 el Estado Plurinacional de Bolivia, tiene entre sus objetivos el desarrollo de la ciencia y la tecnología a través de políticas que permitan generar capacidades científicas en programas y proyectos de investigación e innovación tecnológica, que impulsen la formación de una masa crítica de nuevas generaciones de investigadores en áreas estratégicas, que eleven el desarrollo científico en Bolivia.
+</p>
+
+<p>
+El Encuentro Científico busca el aporte de científicos bolivianos prestigiosos radicados en el exterior, que deseen contribuir con su conocimiento, experiencia y propuestas al desarrollo científico y tecnológico de su pueblo, apelando al compromiso patriótico de apoyar la tierra que les vio nacer. Además buscando su retorno a la patria  para su contribución a su engrandecimiento.
+</p>
 						</div>
 					</div>
 				</div>
@@ -121,39 +131,73 @@
 				<div class="wow bounceInUp" data-wow-delay="0.6s">
 					<div class="team boxed-grey">
 						<div class="inner">
-							<p class="texto">
-<b>Lugar y fecha:</b><br>
-Ciudad de Cochabamba – Bolivia;  jueves 7 y viernes 8 de enero de 2016<br>
-<br>
-<b>Participan:</b><br>
-<br>
-•	Científicos y expertos bolivianos que trabajan en universidades, centros de investigación e industrias en el exterior.<br>
-•	Científicos bolivianos que trabajan en universidades y centros de investigación en Bolivia.<br>
-•	Autoridades de entidades públicas bolivianas.<br>
-•	Autoridades de universidades bolivianas.<br>
-•	Autoridades de empresas estratégicas estatales.<br>
-•	Legisladores.<br>
-<br>
-<b>Requisitos mínimos (para los científicos bolivianos radicados en el exterior):</b><br>
-<br>
+<h3>Objetivo</h3>
+<p>
+Promover un espacio de intercambio de experiencias, propuestas y e ideas de proyectos que permita identificar acciones y mecanismos en el corto, mediano y largo plazo que fortalezcan la Ciencia, Tecnología e Innovación priorizando sectores socio-productivos estratégicos como instrumento para la liberación científica y tecnológica.
+Constituir redes y equipos de investigación para el desarrollo científico y tecnológico de Bolivia con el aporte de bolivianos y bolivianas residentes en el mundo 
+</p>
+<h3>Objetivos específicos</h3>
+<p>
+•	Recoger propuestas de programas y proyectos para fortalecer la investigación, ciencia y tecnología en Bolivia.<br>
+•	Identificar instrumentos normativos, institucionales, financieros y operativos como insumos para la formulación de políticas en Ciencia, Tecnología e Innovación.<br>
+•	Elaborar una propuesta de agenda de trabajo para el periodo 2016 – 2020.<br>
+•	Establecer orientaciones para  promover convenios con las universidades y empresas extranjeras donde trabajan nuestros científicos bolivianos.<br>
+</p>
+<h3>Convocatoria</h3>
+<p>
+El Estado Plurinacional de Bolivia, convoca a científicos y expertos bolivianos, al Encuentro de Científicos Bolivianos radicados en el exterior para la liberación científica tecnológica. 
+</p>
+<h3>Lugar y fechas</h3>
+<p>
+Ciudad de Cochabamba – Bolivia;  jueves 7 y viernes 8 de enero de 2016
+</p>
+<h3>Requisitos mínimos</h3>
+<p>
 •	Tener nacionalidad boliviana.<br>
-•	Encontrase actualmente trabajando en una Universidad, Centro de Investigación o Industria del exterior de Bolivia.<br>
-•	Tener al menos el grado de Maestría.<br>
-<br>
-<b>Temario:</b><br>
-<br>
+•	Encontrarse trabajando en una Universidad, Centro de Investigación o Industria del exterior de Bolivia, en tareas de investigación, desarrollo tecnológico o innovación tecnológica.<br>
+•	Tener al menos el grado académico de Maestría.
+</p>
+<h3>Areas Priorizadas</h3>
+<p>
+•	Salud e industria del medicamento<br>
+•	Desarrollo  Agropecuario  y tecnologías de alimentos<br>
+•	Transformación Industrial<br>
+•	Recursos Naturales, Medio Ambiente y Biodiversidad<br>
+•	Energías e hidrocarburos<br>
+•	Minería y metalurgia<br>
+•	Tecnologías de información y comunicación<br>
+•	Desarrollo de software y hardware
+</p>
+<h3>Temario:</h3>
+<p>
 1.	Formación de talento humano.<br>
-2.	Innovación tecnológica.<br>
-3.	Fortalecimiento de la Investigación<br>
-4.	Desarrollo de Tecnologías de Información y Sociedad del Conocimiento<br>
-<br>
-<b>Pre-Registro para científicos radicados en el exterior</b><br>
-A través de www.congresocientifico.gob.bo, desde el 24 de noviembre al 18 de diciembre de 2015.<br>
-<br>
+2.	Fortalecimiento de la Investigación<br>
+3.	Innovación tecnológica  e Industrialización<br>
+4.	Desarrollo tecnológico y economía del conocimiento
+</p>
+<h3>Pre Registro para científicos radicados en el exterior</h3>
+<p>
+A través de www.encuentrocientifico.gob.bo, desde el 4 al 16 de diciembre de 2015.
+</p>
+<h3>Selección de participantes</h3>
+<p>
+La selección de los participantes estará a cargo de un Comité Interinstitucional de expertos y se realizará del 17 al 18 de diciembre de 2015
+</p>
+<h3>Comunicación e invitación</h3>
+<p>
+Los resultados de la selección serán comunicados a los investigadores hasta el 21 de diciembre de 2015.
+</p>
+<h3>Logística</h3>
+<p>
+El Estado Plurinacional de Bolivia, cubrirá los costos de transporte de ida y vuelta y estadía durante los días del encuentro a todos los participantes seleccionados. 
+</p>
+<!--
 <b>Selección de participantes</b><br>
 Del 21 al 22 de diciembre de 2015.<br>
 23 de diciembre comunicación e invitación Oficial al congreso.<br>
-							</p>
+-->
+
+							
 						</div>
 					</div>
 				</div>
@@ -229,8 +273,8 @@ Del 21 al 22 de diciembre de 2015.<br>
 						<div class="wow bounceInDown" data-wow-delay="0.4s">
 							<div class="section-heading text-center">
 								<h4>
-								FORMULARIO DE PRE-REGISTRO DE INVESTIGADORES Y EXPERTOS BOLIVIANOS RESIDENTES EN EL EXTERIOR<br>
-								CONGRESO CIENTÍFICO, PARA LA LIBERACIÓN CIENTÍFICA TECNOLÓGICA<br>
+								FORMULARIO DE PRE-REGISTRO<br>								
+								I ENCUENTRO DE CIENTÍFICOS BOLIVIANOS RADICADOS EN EL EXTERIOR, PARA LA LIBERACIÓN CIENTÍFICA TECNOLÓGICA<br>
 								COCHABAMBA DEL 07 AL 08 DE ENERO DE 2016
 								</h4>
 								<i class="fa fa-2x fa-angle-down"></i>
@@ -322,12 +366,12 @@ Del 21 al 22 de diciembre de 2015.<br>
 				  <h3>2. <small>Formaci&oacute;n</small></h3>
 				</div>
 				<div class="row">
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-7">
 						{{ form.profesion.label_tag }}
 						{{ form.profesion|addcss:"form-control" }}
 						<div class="help-block with-errors">{{ form.profesion.errors }}</div>
 					</div>
-					<div class="form-group col-md-3">
+					<div class="form-group col-md-2">
 						{{ form.max_grado.label_tag }}
 						{{ form.max_grado|addcss:"form-control" }}
 						<div class="help-block with-errors">{{ form.max_grado.errors }}</div>
@@ -408,8 +452,9 @@ Del 21 al 22 de diciembre de 2015.<br>
 					</div>
 				</div>
 				<div class="page-header">
-				  <h3>5. <small>Disponibilidad</small></h3>
+				  <h3>5. <small>Itinerario tentativo de viaje</small></h3>
 				</div>
+				<!--
 				<div class="row">
 					<div class="form-group col-md-6">
 						<div class="checkbox">
@@ -420,7 +465,7 @@ Del 21 al 22 de diciembre de 2015.<br>
 						</div>
 						<div class="help-block with-errors">{{ form.disponibilidad.errors }}</div>
 					</div>
-				</div>
+				</div>-->
 				<div class="row">
 					<div class="form-group col-md-4">
 						{{ form.pais_origen.label_tag }}
@@ -459,14 +504,7 @@ Del 21 al 22 de diciembre de 2015.<br>
 						</div>
 						<div class="help-block with-errors">{{ form.fecha_retorno.errors }}</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-md-6">
-						{{ form.comment_no.label_tag }}
-						{{ form.comment_no|addcss:"form-control" }}
-						<div class="help-block with-errors">{{ form.comment_no.errors }}</div>
-					</div>
-				</div>
+				</div>				
 				<div class="page-header">
 				  <h3>6. <small>Comentarios Adicionales</small></h3>
 				</div>
@@ -479,12 +517,12 @@ Del 21 al 22 de diciembre de 2015.<br>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-6">
-						<p>Esta información sera revisada por un comite para confirmar su participación</p>
+						<p>Esta información será revisada por un Comite para confirmar su participación</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-12 text-center">
-						<button type="submit" class="btn btn-default">Enviar Formulario de Inscripción</button>
+						<button type="submit" class="btn btn-default">Enviar Formulario de Pre-Registro</button>
 					</div>
 				</div>
 			</form>

@@ -96,7 +96,8 @@ class Investigador(models.Model):
     experiencia_year = models.IntegerField(validators=[validate_cant_year], verbose_name='Años de experiencia')
     curriculum = models.FileField(upload_to='uploads/curriculum', verbose_name='Curriculum Vitae')
     # PUBLICACIONES
-    publicacion = models.CharField(max_length=50, verbose_name='Colocar el enlace')
+    # publicacion = models.CharField(max_length=50, verbose_name='Colocar el enlace')
+    publicacion = models.URLField(verbose_name='Colocar el enlace')
     # DISPONIBILIDAD DE TIEMPO PARA ASISTIR CONGRESO
     disponibilidad = models.BooleanField(choices=BOOL_CHOICES, default=False)
     pais_origen = models.ForeignKey(Pais, related_name='pais_origen', verbose_name='País de origen')
@@ -104,7 +105,7 @@ class Investigador(models.Model):
     aeropuerto_origen = models.CharField(max_length=100, verbose_name='Aeropuerto de origen')
     fecha_llegada = models.DateField(verbose_name='Fecha de llegada a Bolivia(Cochabamba)')
     fecha_retorno = models.DateField(verbose_name='Fecha de retorno')
-    comment_no = models.TextField(verbose_name='Comentarios', help_text='Comentar por que no puede asistir al evento')
+    # comment_no = models.TextField(verbose_name='Comentarios', help_text='Comentar por que no puede asistir al evento')
     # COMENTARIOS
     comment = models.TextField(verbose_name='Comentarios')
     # def save(self, *args, **kwargs):
@@ -114,3 +115,6 @@ class Investigador(models.Model):
 
     def __str__(self):
 		return self.nombre_completo
+
+    def __unicode__(self):
+        return self.nombre_completo
